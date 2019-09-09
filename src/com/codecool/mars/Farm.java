@@ -11,9 +11,16 @@ public class Farm {
         plants.add(plant);
     }
     protected void harvest(){
+        int tmpProduct = totalProduction;
         for (Plant plant : plants){
-            System.out.println(plant.monthlyProduction);
+            System.out.println(plant.getClass().getSimpleName() + " current prod: " +plant.monthlyProduction);
             totalProduction += plant.monthlyProduction;
+            if (plant instanceof Rottable){
+                if (((Rottable) plant).isRotten()){
+                    totalProduction = tmpProduct;
+                    break;
+                }
+            }
             plant.grow();
         }
     }
@@ -22,7 +29,7 @@ public class Farm {
         for (int month = 0; month <= numOfMonths; month++){
             int tmp = totalProduction;
             harvest();
-            System.out.println(month + " , " + totalProduction);
+            System.out.println("at month " + month + " the total production: " + totalProduction);
             System.out.println("monthly income: " + (totalProduction-tmp));
         }
     }

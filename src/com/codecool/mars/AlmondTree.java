@@ -13,7 +13,6 @@ public class AlmondTree extends Plant implements GrowShroom, Rottable{
     @Override
     public void grow() {
         growShroom();
-        rot();
         super.grow();
         if (monthlyProduction <= 40){
             monthlyProduction += monthlyProductionGrow;
@@ -24,15 +23,18 @@ public class AlmondTree extends Plant implements GrowShroom, Rottable{
     public void growShroom() {
         int chance = Util.random.nextInt(100);
         if (chance <= SHROOM_CHANCE_TO_GROW_PERCENT){
-            System.out.println("SHROOOOM");
+            System.out.println(this.getClass().getSimpleName() + " __SHROOOOM");
         }
     }
 
     @Override
-    public void rot() {
+    public boolean isRotten() {
+        boolean isRotten = false;
         int chance = Util.random.nextInt(100);
         if (chance <= ROT_CHANCE){
             System.out.println(this.getClass().getSimpleName() + " is rotten");
+            isRotten = true;
         }
+        return isRotten;
     }
 }

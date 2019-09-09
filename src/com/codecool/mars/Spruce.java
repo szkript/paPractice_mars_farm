@@ -5,15 +5,14 @@ public class Spruce extends Evergreen implements GrowShroom, Rottable {
     private static final int ROT_CHANCE = 4;
     public static int SHROOM_CHANCE_TO_GROW_PERCENT = 5;
 
+
     public Spruce() {
         this.monthlyProduction = DEFAULT_MONTHLY_PRODUCTION;
-
     }
 
     @Override
     public void grow() {
         growShroom();
-        rot();
         super.grow();
     }
 
@@ -21,15 +20,18 @@ public class Spruce extends Evergreen implements GrowShroom, Rottable {
     public void growShroom() {
         int chance = Util.random.nextInt(100);
         if (chance <= SHROOM_CHANCE_TO_GROW_PERCENT){
-            System.out.println("SHROOOOM");
+            System.out.println(this.getClass().getSimpleName() + " __SHROOOOM");
         }
     }
 
     @Override
-    public void rot() {
+    public boolean isRotten() {
+        boolean isRotten = false;
         int chance = Util.random.nextInt(100);
         if (chance <= ROT_CHANCE){
             System.out.println(this.getClass().getSimpleName() + " is rotted");
+            isRotten = true;
         }
+        return isRotten;
     }
 }
