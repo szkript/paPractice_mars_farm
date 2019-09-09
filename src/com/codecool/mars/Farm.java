@@ -10,10 +10,18 @@ public class Farm {
     public void addPlant(Plant plant){
         plants.add(plant);
     }
+    protected void harvest(){
+        for (Plant plant : plants){
+            totalProduction += plant.monthlyProduction;
+            plant.grow();
+            System.out.println(plant.monthlyProduction);
+        }
+    }
 
     public void operate(int numOfMonths){
         for (int month = 0; month <= numOfMonths; month++){
-            System.out.println(month);
+            harvest();
+            System.out.println(month + " , " + totalProduction);
         }
     }
 
