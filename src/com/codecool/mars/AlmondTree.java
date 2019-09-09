@@ -1,4 +1,4 @@
 package com.codecool.mars;
 
-public class AlmondTree extends Plant implements Shroom{
+public class AlmondTree extends Plant {
 }
