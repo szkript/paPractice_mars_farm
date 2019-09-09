@@ -1,7 +1,7 @@
 package com.codecool.mars;
 
 public class Mars {
-    static final int NUM_OF_MONTHS = 20;
+    static final int NUM_OF_MONTHS = 80;
 
     public static void main(String[] args) {
         Farm farm = new Farm();

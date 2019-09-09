@@ -2,6 +2,7 @@ package com.codecool.mars;
 
 public class AlmondTree extends Plant implements GrowShroom, Rottable{
     private static final int ROT_CHANCE = 13;
+    private static final int ROT_DECAY = 18;
     private static int DEFAULT_MONTHLY_PRODUCTION = 50;
     public static int SHROOM_CHANCE_TO_GROW_PERCENT = 8;
 
@@ -24,6 +25,7 @@ public class AlmondTree extends Plant implements GrowShroom, Rottable{
         int chance = Util.random.nextInt(100);
         if (chance <= SHROOM_CHANCE_TO_GROW_PERCENT){
             System.out.println(this.getClass().getSimpleName() + " __SHROOOOM");
+            this.monthlyProductionGrow += 10;
         }
     }
 
@@ -32,7 +34,8 @@ public class AlmondTree extends Plant implements GrowShroom, Rottable{
         boolean isRotten = false;
         int chance = Util.random.nextInt(100);
         if (chance <= ROT_CHANCE){
-            System.out.println(this.getClass().getSimpleName() + " is rotten");
+            System.out.println(this.getClass().getSimpleName() + " *****is rotten");
+            this.monthlyProduction -= ROT_DECAY;
             isRotten = true;
         }
         return isRotten;
