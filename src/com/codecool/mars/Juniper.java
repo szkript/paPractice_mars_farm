@@ -6,4 +6,5 @@ public class Juniper extends Evergreen{
     public Juniper() {
         this.monthlyProduction = DEFAULT_MONTHLY_PRODUCTION;
     }
+
 }

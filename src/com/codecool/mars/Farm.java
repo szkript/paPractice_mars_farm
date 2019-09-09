@@ -20,8 +20,10 @@ public class Farm {
 
     public void operate(int numOfMonths){
         for (int month = 0; month <= numOfMonths; month++){
+            int tmp = totalProduction;
             harvest();
             System.out.println(month + " , " + totalProduction);
+            System.out.println("monthly income: " + (totalProduction-tmp));
         }
     }
 
