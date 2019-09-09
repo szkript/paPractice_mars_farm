@@ -1,8 +1,11 @@
 package com.codecool.mars;
 
 public class Mars {
+    static final int NUM_OF_MONTHS = 10;
 
     public static void main(String[] args) {
-	// write your code here
+        Farm farm = new Farm();
+        farm.addPlant(new Spruce());
+        farm.operate(NUM_OF_MONTHS);
     }
 }
