@@ -12,9 +12,9 @@ public class Farm {
     }
     protected void harvest(){
         for (Plant plant : plants){
+            System.out.println(plant.monthlyProduction);
             totalProduction += plant.monthlyProduction;
             plant.grow();
-            System.out.println(plant.monthlyProduction);
         }
     }
 
